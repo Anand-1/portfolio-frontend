@@ -1,20 +1,26 @@
 import React from "react";
+import { Metadata } from "next";
+import CVHeader from "@/app/components/CVHeader";
+import ProfessionalSummary from "@/app/components/ProfessionalSummary";
+import TechnicalSkills from "@/app/components/TechnicalSkills";
+import WorkExperience from "@/app/components/WorkExperience";
+import KeyAchievements from "@/app/components/KeyAchievements";
+import { pagesConfig } from "../../../config/pages";
 import styles from "./page.module.css";
-import ButtonMain from "./ButtonMain";
 
-export default function About() {
+export const metadata: Metadata = {
+  title: pagesConfig.resume.metadata.title,
+  description: pagesConfig.resume.metadata.description,
+};
+
+export default function CV() {
   return (
     <div className={styles.page}>
-      <main className={styles.main}>
-        <h1 className={styles.title}>About Me</h1>
-        <p className={styles.description}>
-          I am a passionate software developer with experience in building web
-          applications using modern technologies. I enjoy learning new skills and
-          working on challenging projects.
-        </p>
-      </main>
-
-      <ButtonMain />
+      <CVHeader />
+      <ProfessionalSummary />
+      <TechnicalSkills />
+      <WorkExperience />
+      <KeyAchievements />
     </div>
   );
 }

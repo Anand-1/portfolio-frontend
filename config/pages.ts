@@ -18,7 +18,7 @@ export const pagesConfig: PagesConfig = {
     description: "Welcome to my portfolio website.",
     metadata: {
       title: "Home",
-      description: "Naman Barkiya's portfolio website.",
+      description: "Anand Raj - Full Stack Developer Portfolio",
     },
   },
   skills: {
@@ -27,7 +27,7 @@ export const pagesConfig: PagesConfig = {
     metadata: {
       title: "Skills",
       description:
-        "Naman Barkiya's key skills that define his professional identity.",
+        "Anand Raj's technical skills in React, Node.js, TypeScript, and Full Stack Development.",
     },
   },
   projects: {
@@ -35,7 +35,7 @@ export const pagesConfig: PagesConfig = {
     description: "Showcasing impactful projects and technical achievements.",
     metadata: {
       title: "Projects",
-      description: "Naman Barkiya's projects in building web applications.",
+      description: "Anand Raj's projects in building full stack web applications.",
     },
   },
   contact: {
@@ -43,7 +43,7 @@ export const pagesConfig: PagesConfig = {
     description: "Let's connect and explore collaborations.",
     metadata: {
       title: "Contact",
-      description: "Contact Naman Barkiya.",
+      description: "Contact Anand Raj - Full Stack Developer.",
     },
   },
   contributions: {
@@ -52,34 +52,34 @@ export const pagesConfig: PagesConfig = {
     metadata: {
       title: "Contributions",
       description:
-        "Naman Barkiya's open-source contributions and community involvement.",
+        "Anand Raj's open-source contributions and community involvement.",
     },
   },
   resume: {
-    title: "Resume",
-    description: "Naman Barkiya's resume.",
+    title: "Resume/CV",
+    description: "Professional resume and career overview with 9+ years of full stack development experience.",
     metadata: {
-      title: "Resume",
-      description: "Naman Barkiya's resume.",
+      title: "Resume/CV",
+      description: "Anand Raj's comprehensive resume and CV - Full Stack Developer with 9+ years experience in React, Node.js, AWS, and more.",
     },
   },
   blogs: {
     title: "Blogs",
     description:
-      "Thoughts on AI, software engineering, and building in public.",
+      "Thoughts on software engineering, web development, and technical insights.",
     metadata: {
       title: "Blogs",
       description:
-        "Naman Barkiya's blog — thoughts on AI, software engineering, and building in public.",
+        "Anand Raj's blog — insights on software engineering, web development, and full stack development.",
     },
   },
   experience: {
     title: "Experience",
-    description: "Professional journey and career timeline.",
+    description: "Professional journey and career timeline across Insurance, Banking, and E-commerce.",
     metadata: {
       title: "Experience",
       description:
-        "Naman Barkiya's professional journey and experience timeline.",
+        "Anand Raj's professional journey spanning 9+ years in full stack development.",
     },
   },
 };
