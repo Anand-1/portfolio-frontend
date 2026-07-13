@@ -1,5 +1,5 @@
 import { render, screen } from '@testing-library/react';
-import SkillsCircularChart from '@/app/components/SkillsCircularChart';
+import SkillsCircularChart from '@/app/components/Charts/SkillsCircluar/SkillsCircularChart';
 
 describe('SkillsCircularChart', () => {
   it('renders the skill categories for the homepage chart', () => {

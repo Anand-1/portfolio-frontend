@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Navigation from "./Navigation/page";
-import ChatPortal from "./components/ChatPortal";
+import ChatPortal from "./components/Chat/ChatPortal";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
