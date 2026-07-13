@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import Navigation from "./Navigation/page";
 import ChatPortal from "./components/ChatPortal";
 
 const geistSans = Geist({
@@ -26,7 +27,8 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${geistSans.variable} ${geistMono.variable}`}>
       <body>
-        {children}
+        <Navigation />
+        <div className="appContent">{children}</div>
         <ChatPortal />
       </body>
     </html>

@@ -1,7 +1,6 @@
 import { Metadata } from "next";
 import { pagesConfig } from "../../config/pages";
 import styles from "./page.module.css";
-import Navigation from "@/app/Navigation/page";
 import ContentSection from "@/app/components/ContentSection";
 import SkillsCircularChart from "@/app/components/SkillsCircularChart";
 
@@ -14,7 +13,6 @@ export default function Home() {
   return (
     <div className={styles.page}>
       <main className={styles.main}>
-        <Navigation />
         <h1 className={styles.typewriter}>Welcome Anand !</h1>
         <SkillsCircularChart />
       </main>

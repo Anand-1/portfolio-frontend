@@ -33,6 +33,10 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+.appContent {
+  padding-top: 4rem;
+}
+
 * {
   box-sizing: border-box;
   padding: 0;

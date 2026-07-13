@@ -1,42 +1,31 @@
 import Link from "next/link";
+import styles from "./page.module.css";
 
 export default function Navigation() {
   return (
-    <nav className="bg-gradient-to-r from-slate-900 to-slate-800 shadow-lg">
-      <ul className="flex justify-center gap-8 px-6 py-4">
+    <nav className={styles.nav}>
+      <ul className={styles.navList}>
         <li>
-          <Link 
-            href="/" 
-            className="relative text-white font-semibold text-lg transition-all duration-300 hover:text-blue-400 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-blue-400 after:transition-all after:duration-300 hover:after:w-full"
-          >
+          <Link href="/" className={styles.navLink}>
             Home
           </Link>
         </li>
         <li>
-          <Link 
-            href="/about" 
-            className="relative text-white font-semibold text-lg transition-all duration-300 hover:text-blue-400 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-blue-400 after:transition-all after:duration-300 hover:after:w-full"
-          >
+          <Link href="/about" className={styles.navLink}>
             About
           </Link>
         </li>
         <li>
-          <Link 
-            href="/gallery" 
-            className="relative text-white font-semibold text-lg transition-all duration-300 hover:text-blue-400 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-blue-400 after:transition-all after:duration-300 hover:after:w-full"
-          >
+          <Link href="/gallery" className={styles.navLink}>
             Gallery
           </Link>
         </li>
         <li>
-          <Link 
-            href="/contact" 
-            className="relative text-white font-semibold text-lg transition-all duration-300 hover:text-blue-400 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-blue-400 after:transition-all after:duration-300 hover:after:w-full"
-          >
+          <Link href="/contact" className={styles.navLink}>
             Contact
           </Link>
         </li>
       </ul>
     </nav>
   );
-}   
+}

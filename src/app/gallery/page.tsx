@@ -87,75 +87,54 @@ export default function Gallery() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-900 to-slate-800 p-8">
-      <div className="max-w-7xl mx-auto">
-        <div className="flex justify-between items-center mb-12">
-          <h1 className="text-4xl font-bold text-white">Pokédex</h1>
-          <button
-            onClick={handleRefresh}
-            className="px-6 py-2 bg-blue-500 hover:bg-blue-600 text-white font-semibold rounded-lg transition-colors duration-300"
-          >
+    <div className={styles.page}>
+      <div className={styles.container}>
+        <div className={styles.header}>
+          <h1 className={styles.title}>Pokédex</h1>
+          <button onClick={handleRefresh} className={styles.refreshButton}>
             Load New Pokémon
           </button>
         </div>
 
-        {error && (
-          <div className="bg-red-500/20 border border-red-500 text-red-100 px-4 py-3 rounded-lg mb-8">
-            {error}
-          </div>
-        )}
+        {error && <div className={styles.errorMessage}>{error}</div>}
 
         {loading ? (
-          <div className="flex justify-center items-center h-64">
-            <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-blue-500"></div>
+          <div className={styles.loading}>
+            <div className={styles.spinner}></div>
           </div>
         ) : pokemon.length > 0 ? (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className={styles.cardGrid}>
             {pokemon.map((poke) => (
-              <div
-                key={poke.id}
-                className="group bg-gradient-to-br from-slate-800 to-slate-700 rounded-lg shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:scale-105 overflow-hidden border border-slate-600"
-              >
-                {/* Card Header */}
-                <div className="bg-gradient-to-r from-blue-600 to-purple-600 p-4 flex justify-between items-start">
+              <div key={poke.id} className={styles.pokemonCard}>
+                <div className={styles.cardHeader}>
                   <div>
-                    <p className="text-slate-200 text-sm font-semibold">
+                    <p className={styles.pokeId}>
                       #{poke.id.toString().padStart(3, '0')}
                     </p>
-                    <h2 className="text-white text-xl font-bold">
-                      {poke.name}
-                    </h2>
+                    <h2 className={styles.pokeName}>{poke.name}</h2>
                   </div>
                 </div>
 
-                {/* Image */}
-                <div className="bg-gradient-to-b from-slate-700 to-slate-600 p-6 flex justify-center items-center h-48">
+                <div className={styles.imageArea}>
                   {poke.image ? (
                     <img
                       src={poke.image}
                       alt={poke.name}
-                      className="h-40 w-40 object-contain group-hover:scale-110 transition-transform duration-300"
+                      className={styles.pokemonImage}
                     />
                   ) : (
-                    <div className="text-gray-400">No image available</div>
+                    <div className={styles.emptyState}>No image available</div>
                   )}
                 </div>
 
-                {/* Card Body */}
-                <div className="p-4">
-                  {/* Types */}
-                  <div className="mb-4">
-                    <p className="text-gray-400 text-xs font-semibold mb-2">
-                      TYPES
-                    </p>
-                    <div className="flex gap-2 flex-wrap">
+                <div className={styles.cardBody}>
+                  <div>
+                    <p className={styles.typeLabel}>TYPES</p>
+                    <div className={styles.typeList}>
                       {poke.types.map((typeData, idx) => (
                         <span
                           key={idx}
-                          className={`${
-                            typeColors[typeData.type.name] ||
-                            'bg-gray-500'
-                          } text-white text-xs font-bold px-3 py-1 rounded-full`}
+                          className={`${typeColors[typeData.type.name] || 'bg-gray-500'} ${styles.typeBadge}`}
                         >
                           {typeData.type.name.charAt(0).toUpperCase() +
                             typeData.type.name.slice(1)}
@@ -164,17 +143,16 @@ export default function Gallery() {
                     </div>
                   </div>
 
-                  {/* Stats */}
-                  <div className="grid grid-cols-2 gap-2 text-sm">
-                    <div className="bg-slate-600/50 p-2 rounded">
-                      <p className="text-gray-400 text-xs">Height</p>
-                      <p className="text-white font-bold">
+                  <div className={styles.statsGrid}>
+                    <div className={styles.statBox}>
+                      <p className={styles.statLabel}>Height</p>
+                      <p className={styles.statValue}>
                         {(poke.height / 10).toFixed(1)}m
                       </p>
                     </div>
-                    <div className="bg-slate-600/50 p-2 rounded">
-                      <p className="text-gray-400 text-xs">Weight</p>
-                      <p className="text-white font-bold">
+                    <div className={styles.statBox}>
+                      <p className={styles.statLabel}>Weight</p>
+                      <p className={styles.statValue}>
                         {(poke.weight / 10).toFixed(1)}kg
                       </p>
                     </div>
@@ -184,9 +162,7 @@ export default function Gallery() {
             ))}
           </div>
         ) : (
-          <div className="text-center text-gray-400">
-            No Pokémon found
-          </div>
+          <div className={styles.emptyState}>No Pokémon found</div>
         )}
       </div>
     </div>
