@@ -1,36 +1,66 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Portfolio Frontend
+
+A modern personal portfolio built with Next.js 16.2.9, React 19, and TypeScript.
+
+## Features
+
+- Sticky navigation bar across all pages
+- Animated vector background behind page content
+- Glassmorphism-style transparent buttons and UI controls
+- AI skills included in the portfolio skill set and visual charts
+- Highcharts treegraph widget for technical skill visualization
+- Circular skill chart summarizing core expertise areas
+- Modular component structure using the App Router
+- Responsive layout with mobile-friendly breakpoints
+- Client-only dynamic chart loading for browser-safe rendering
+
+## Application Flow
+
+1. `app/layout.tsx` renders the global layout:
+   - animated background
+   - navigation
+   - page content wrapper
+   - chat portal
+2. `app/page.tsx` renders the homepage content:
+   - hero text and charts
+   - circular skill chart
+   - Highcharts skills treegraph
+   - content section with skill highlights and CTA
+3. `src/data/cv.ts` provides structured portfolio data:
+   - profile header
+   - technical skills
+   - work experience
+   - achievements
+4. `src/app/components` renders reusable sections:
+   - `TechnicalSkills`
+   - `ContentSection`
+   - `Chat` and `ChatPortal`
+   - `AnimatedBackground`
+5. Dynamic browser-only chart loading is handled by:
+   - `HighchartSkillsLoader.tsx`
+   - `HighchartSkills.tsx`
 
 ## Getting Started
 
-First, run the development server:
+Install dependencies and run the development server:
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) to view the portfolio.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Notes
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- The app uses Tailwind CSS and CSS Modules for styling.
+- Highcharts is initialized client-side to avoid SSR issues.
+- The button and UI theme is designed to match a translucent macOS-style aesthetic.
 
-## Learn More
+## Local Validation
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+1. Install dependencies: `npm install`
+2. Run the development server: `npm run dev`
+3. Open [http://localhost:3000](http://localhost:3000)
+4. Run component tests: `npm test`
+5. Run E2E tests: `npm run e2e`

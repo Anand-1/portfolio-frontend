@@ -1,6 +1,29 @@
 # Testing Documentation
 
-This project is configured with three testing frameworks:
+This project is configured with three testing frameworks.
+
+## Project Features
+
+- Sticky navigation and animated vector background
+- Glassmorphism-inspired transparent button UI
+- AI / ML skills surfaced in both data and chart visualizations
+- Browser-safe Highcharts treegraph rendering via client-only loading
+- Responsive app layout with reusable App Router components
+
+## Application Flow
+
+1. `app/layout.tsx` renders global layout components:
+   - `AnimatedBackground`
+   - `Navigation`
+   - page content container
+   - `ChatPortal`
+2. `app/page.tsx` renders home page content:
+   - circular skills overview
+   - Highcharts treegraph skills visualization
+   - content section and call-to-action
+3. `src/data/cv.ts` provides structured portfolio data for components.
+4. Reusable UI components in `src/app/components/` are validated with Jest + RTL.
+5. End-to-end page flows are covered by Playwright specs under `e2e/`.
 
 ## 1. **Jest + React Testing Library (Unit Tests)**
 
@@ -167,6 +190,14 @@ npm test
 # Run E2E tests (ensure dev server is running)
 npm run e2e
 ```
+
+## Local Validation
+
+1. Install dependencies: `npm install`
+2. Start the dev server: `npm run dev`
+3. Open [http://localhost:3000](http://localhost:3000)
+4. Run unit tests: `npm test`
+5. Run E2E tests: `npm run e2e`
 
 ## Resources
 
