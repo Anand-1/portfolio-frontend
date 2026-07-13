@@ -54,8 +54,7 @@ const HighchartsSkills = () => {
           chart: {
             type: "treegraph",
             height: 520,
-            marginLeft: 100,
-            marginRight: 100,
+            margin: 50,
             backgroundColor: "var(--highcharts-background-color, #fff)",
             borderColor: "var(--highcharts-border-color, #ccc)",
             borderWidth: 1,

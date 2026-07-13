@@ -25,7 +25,7 @@ body {
 }
 
 body {
-  min-height: 100%;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
   color: var(--foreground);
@@ -33,6 +33,13 @@ body {
   font-family: monospace;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+.appContent {
+  position: relative;
+  z-index: 1;
+  min-height: 100vh;
+  width: 100%;
 }
 
 * {

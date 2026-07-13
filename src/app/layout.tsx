@@ -1,9 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import Navigation from "./Navigation/page";
-import ChatPortal from "./components/Chat/ChatPortal";
-import AnimatedBackground from "./components/AnimatedBackground";
+import AppShell from "./components/layout/AppShell";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -28,10 +26,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${geistSans.variable} ${geistMono.variable}`}>
       <body>
-        <AnimatedBackground />
-        <Navigation />
-        <div className="appContent">{children}</div>
-        <ChatPortal />
+        <AppShell>{children}</AppShell>
       </body>
     </html>
   );
