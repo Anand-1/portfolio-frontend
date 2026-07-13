@@ -64,3 +64,15 @@ Open [http://localhost:3000](http://localhost:3000) to view the portfolio.
 3. Open [http://localhost:3000](http://localhost:3000)
 4. Run component tests: `npm test`
 5. Run E2E tests: `npm run e2e`
+
+## Vercel Deployment
+
+This repository includes a GitHub Actions workflow at `.github/workflows/vercel-deploy.yml` that deploys to Vercel on pushes to `main`.
+
+### Required GitHub secrets
+
+- `VERCEL_TOKEN`
+- `VERCEL_ORG_ID`
+- `VERCEL_PROJECT_ID`
+
+Add those secrets in your repository settings before the first deployment.
