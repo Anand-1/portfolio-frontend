@@ -2,7 +2,7 @@ import { Metadata } from "next";
 import { pagesConfig } from "../../config/pages";
 import styles from "./page.module.css";
 import ContentSection from "@/app/components/ContentSection";
-import SkisCircularChart from "@/app/components/Charts/SkillsCircluar/SkillsCircularChart";
+import SkisCircularChart from "@/app/components/Charts/SkillsCircular/SkillsCircularChart";
 import HighchartsSkillsLoader from "@/app/components/Charts/HIghchartTree/HighchartSkillsLoader";
 
 export const metadata: Metadata = {
@@ -15,8 +15,11 @@ export default function Home() {
     <div className={styles.page}>
       <main className={styles.main}>
         <h1 className={styles.typewriter}>Welcome Anand !</h1>
-        <SkisCircularChart />
-        <HighchartsSkillsLoader />
+        <div className={styles.chartsContainer}>
+          <SkisCircularChart />
+          <HighchartsSkillsLoader />
+        </div>
+       
       </main>
       <ContentSection />
     </div>

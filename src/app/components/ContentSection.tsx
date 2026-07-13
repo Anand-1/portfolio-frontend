@@ -30,6 +30,7 @@ export default function ContentSection() {
             <div className={styles.skillTag}>Tailwind CSS</div>
             <div className={styles.skillTag}>Node.js</div>
             <div className={styles.skillTag}>REST APIs</div>
+            <div className={styles.skillTag}>AI / ML</div>
             <div className={styles.skillTag}>Git</div>
           </div>
 

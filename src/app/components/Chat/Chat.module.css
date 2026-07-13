@@ -127,19 +127,21 @@
 
 .sendButton {
   padding: 10px 16px;
-  background: white;
+  background: rgba(255, 255, 255, 0.14);
   color: #667eea;
-  border: none;
-  border-radius: 6px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 20px;
   font-size: 14px;
   font-weight: 600;
   cursor: pointer;
-  transition: all 0.2s;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+  backdrop-filter: blur(16px);
 }
 
 .sendButton:hover:not(:disabled) {
-  transform: translateY(-2px);
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  transform: translateY(-1px);
+  box-shadow: 0 18px 38px rgba(15, 23, 42, 0.12);
+  background: rgba(255, 255, 255, 0.22);
 }
 
 .sendButton:disabled {

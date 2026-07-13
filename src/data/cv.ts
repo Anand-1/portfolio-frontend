@@ -20,6 +20,7 @@ export const cvData = {
     testing: ["Jest", "React Testing Library", "Playwright", "Cypress", "X-Ray", "TDD"],
     accessibility: ["Axe DevTools", "NVDA", "Lighthouse", "WCAG 2.1"],
     architecture: ["Micro Frontend", "SPA", "Server-less", "CI/CD", "Agile/Scrum"],
+    ai: ["Machine Learning", "NLP", "Prompt Engineering", "OpenAI", "TensorFlow", "PyTorch", "Generative AI"],
     tools: ["Git", "JIRA", "X-Ray", "Confluence", "Axe DevTools", "Postman"],
   },
 

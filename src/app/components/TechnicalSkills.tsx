@@ -14,6 +14,7 @@ export default function TechnicalSkills() {
     { title: 'Testing', items: skills.testing },
     { title: 'Accessibility', items: skills.accessibility },
     { title: 'Architecture', items: skills.architecture },
+    { title: 'AI / ML', items: skills.ai },
     { title: 'Tools', items: skills.tools },
   ];
 

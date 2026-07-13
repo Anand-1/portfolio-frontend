@@ -3,7 +3,7 @@
 import { cvData } from '@/data/cv';
 import styles from './SkillsCircularChart.module.css';
 
-const categoryPalette = ['#60a5fa', '#34d399', '#f59e0b', '#a78bfa'];
+const categoryPalette = ['#60a5fa', '#34d399', '#f59e0b', '#a78bfa', '#ec4899'];
 
 export default function SkillsCircularChart() {
   const categories = [
@@ -11,6 +11,7 @@ export default function SkillsCircularChart() {
     { title: 'Backend', value: cvData.technicalSkills.backend.length, color: categoryPalette[1] },
     { title: 'Cloud & DevOps', value: cvData.technicalSkills.cloudDevOps.length, color: categoryPalette[2] },
     { title: 'Testing', value: cvData.technicalSkills.testing.length, color: categoryPalette[3] },
+    { title: 'AI / ML', value: cvData.technicalSkills.ai.length, color: categoryPalette[4] },
   ];
 
   const total = categories.reduce((sum, category) => sum + category.value, 0);
