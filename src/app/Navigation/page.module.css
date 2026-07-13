@@ -14,30 +14,3 @@
   gap: 2rem;
   padding: 1rem 1.5rem;
 }
-
-.navLink {
-  position: relative;
-  color: #ffffff;
-  font-weight: 600;
-  font-size: 1.125rem;
-  transition: color 0.1s ease;
-}
-
-.navLink:hover {
-  color: #60a5fa;
-}
-
-.navLink::after {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 0;
-  height: 0.125rem;
-  background: #60a5fa;
-  transition: width 0.3s ease;
-}
-
-.navLink:hover::after {
-  width: 100%;
-}

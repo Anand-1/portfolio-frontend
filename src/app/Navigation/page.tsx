@@ -1,5 +1,6 @@
 import Link from "next/link";
 import styles from "./page.module.css";
+import Buttons from "../components/buttons/Buttons";
 
 export default function Navigation() {
   return (
@@ -7,22 +8,22 @@ export default function Navigation() {
       <ul className={styles.navList}>
         <li>
           <Link href="/" className={styles.navLink}>
-            Home
+            <Buttons buttonText="Home" />
           </Link>
         </li>
         <li>
           <Link href="/about" className={styles.navLink}>
-            About
+            <Buttons buttonText="About" />
           </Link>
         </li>
         <li>
           <Link href="/gallery" className={styles.navLink}>
-            Gallery
+            <Buttons buttonText="Gallery" />
           </Link>
         </li>
         <li>
           <Link href="/contact" className={styles.navLink}>
-            Contact
+            <Buttons buttonText="Contact" />
           </Link>
         </li>
       </ul>
