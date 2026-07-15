@@ -1,5 +1,5 @@
 import { render, screen } from '@testing-library/react';
-import ContentSection from '@/app/components/ContentSection';
+import ContentSection from '@/app/components/ContentSection/ContentSection';
 
 describe('ContentSection Component', () => {
   it('should render the About Me heading', () => {

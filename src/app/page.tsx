@@ -1,7 +1,7 @@
 import { Metadata } from "next";
 import { pagesConfig } from "../../config/pages";
 import styles from "./page.module.css";
-import ContentSection from "@/app/components/ContentSection";
+import ContentSection from "@/app/components/ContentSection/ContentSection";
 import SkillsCircularChart from "@/app/components/Charts/SkillsCircular/SkillsCircularChart";
 import HighchartsSkillsLoader from "@/app/components/Charts/HIghchartTree/HighchartSkillsLoader";
 
