@@ -80,6 +80,14 @@ export default function AgencyPage() {
             <h3>Performance & QA</h3>
             <p>Accessibility, test automation, and measurable experience improvements for production teams.</p>
           </article>
+           <article className={styles.serviceCard}>
+            <span className={styles.icon}>04</span>
+            <h3>Marketing </h3>
+            <p>Market research, brand strategy, and digital marketing campaigns.</p>
+            <a className="sitePrimaryButton" href="https://www.adruptor.com/" target="_blank" rel="noreferrer">
+              Explore services
+            </a>
+          </article>
         </div>
       </section>
     </main>
