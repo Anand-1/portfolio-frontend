@@ -1,6 +1,7 @@
 import Navigation from '@/app/navigation/page';
 import ChatPortal from '@/app/components/Chat/ChatPortal';
 import AnimatedBackground from '@/app/components/AnimatedBackground';
+import UsernamePopup from '@/app/components/Usernamepopup/UsernamePopup';
 // import Sidebar from './Sidebar';
 
 interface AppShellProps {
@@ -12,6 +13,7 @@ export default function AppShell({ children }: AppShellProps) {
     <>
       <AnimatedBackground />
       <Navigation />
+      <UsernamePopup />
       {/* <Sidebar/> */}
       <div className="appContent">{children}</div>
       <ChatPortal />
