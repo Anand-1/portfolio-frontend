@@ -1,4 +1,4 @@
-import Navigation from '@/app/Navigation/page';
+import Navigation from '@/app/navigation/page';
 import ChatPortal from '@/app/components/Chat/ChatPortal';
 import AnimatedBackground from '@/app/components/AnimatedBackground';
 

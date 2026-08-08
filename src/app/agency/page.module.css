@@ -1,0 +1,148 @@
+.kicker {
+  display: inline-flex;
+  padding: 8px 14px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: #baffcf;
+  font-size: 0.7rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.metrics {
+  margin-top: 42px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 34px;
+}
+
+.metrics div {
+  display: flex;
+  flex-direction: column;
+}
+
+.metricValue {
+  font-size: 1.7rem;
+  font-weight: 800;
+}
+
+.metricLabel {
+  color: var(--text-secondary, #b7d4cc);
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+}
+
+.panelHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.panelTitle {
+  font-size: 0.78rem;
+  color: var(--text-secondary, #b7d4cc);
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+}
+
+.status {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: #aefab5;
+  font-size: 0.72rem;
+}
+
+.status::before {
+  content: '';
+  width: 8px;
+  height: 8px;
+  border-radius: 999px;
+  background: #aefab5;
+}
+
+.signalGrid {
+  margin-top: 45px;
+}
+
+.signalGrid article {
+  padding: 18px 0;
+  border-top: 1px solid rgba(255,255,255,0.12);
+}
+
+.signalGrid article:first-child {
+  border-top: 0;
+}
+
+.signalLabel {
+  display: block;
+  font-size: 0.7rem;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  color: var(--text-secondary, #b7d4cc);
+}
+
+.signalText {
+  display: block;
+  margin-top: 8px;
+  font-size: 1rem;
+}
+
+.services {
+  max-width: 1200px;
+  margin: 84px auto 0;
+}
+
+.sectionHeader {
+  margin-bottom: 24px;
+}
+
+.sectionHeader h2 {
+  margin: 12px 0 0;
+  font-size: clamp(1.6rem, 3vw, 2.4rem);
+}
+
+.eyebrow {
+  color: #baffcf;
+  letter-spacing: 0.14em;
+  font-size: 0.72rem;
+  text-transform: uppercase;
+}
+
+.serviceGrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(210px, 1fr));
+  gap: 20px;
+}
+
+.serviceCard {
+  border-radius: 24px;
+  padding: 24px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255,255,255,0.12);
+}
+
+.serviceCard h3 {
+  margin-top: 22px;
+  font-size: 1rem;
+}
+
+.serviceCard p {
+  margin-top: 14px;
+  color: var(--text-secondary, #b7d4cc);
+  line-height: 1.58;
+  font-size: 0.82rem;
+}
+
+.icon {
+  font-weight: 900;
+  color: #c0ffac;
+}
+
+@media (max-width: 820px) {
+  .serviceGrid {
+    grid-template-columns: 1fr;
+  }
+}

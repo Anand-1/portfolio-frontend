@@ -82,4 +82,31 @@ export const pagesConfig: PagesConfig = {
         "Anand Raj's professional journey spanning 9+ years in full stack development.",
     },
   },
+  newsletter: {
+    title: "Newsletter",
+    description: "Weekly engineering brief and software product updates.",
+    metadata: {
+      title: "Newsletter",
+      description:
+        "Anand Raj's newsletter — engineering notes, architecture patterns, and weekly productivity insights.",
+    },
+  },
+  agency: {
+    title: "Agency",
+    description: "Digital product studio services for launch, modernization, and product engineering.",
+    metadata: {
+      title: "Agency",
+      description:
+        "Agency profile for Anand Raj's digital engineering and product studio work.",
+    },
+  },
+  games: {
+    title: "Games",
+    description: "Game lab, experiments, and interactive engineering showcases.",
+    metadata: {
+      title: "Games",
+      description:
+        "Games and experiments — interactive engineering prototypes from Anand Raj's portfolio.",
+    },
+  },
 };
