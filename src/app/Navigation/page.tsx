@@ -21,8 +21,13 @@ export default function Navigation() {
           </Link>
         </li>
         <li>
-          <Link href="/contact" className={styles.navLink}>
-            Contact
+          <Link href="/contacts" className={styles.navLink}>
+            Contacts
+          </Link>
+        </li>
+        <li>
+          <Link href="/resume-builder" className={styles.navLink}>
+            Try my resume Builder
           </Link>
         </li>
       </ul>
