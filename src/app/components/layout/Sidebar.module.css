@@ -1,0 +1,136 @@
+.sidebar {
+  position: sticky;
+  top: 0;
+  flex: 0 0 280px;
+  min-height: 100vh;
+  background: rgba(15, 23, 42, 0.96);
+  border-right: 1px solid rgba(255, 255, 255, 0.12);
+  color: #eefbf1;
+  transition: flex-basis 240ms ease, width 240ms ease;
+}
+
+.sidebar.collapsed {
+  flex-basis: 86px;
+}
+
+.sidebarHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 86px;
+  padding: 10px 14px;
+  border-bottom: 1px solid rgba(255,255,255,0.10);
+}
+
+.brandBlock {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  color: #eefbf1;
+  text-decoration: none;
+}
+
+.brandIcon {
+  width: 38px;
+  height: 38px;
+  border-radius: 999px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #9affac, #ecff73);
+  color: #07141a;
+  font-weight: 900;
+}
+
+.brandText {
+  font-weight: 800;
+  font-size: 0.9rem;
+  font-style: italic;
+}
+
+.collapseButton {
+  border: 1px solid rgba(255,255,255,0.16);
+  color: #eaf9ee;
+  background: transparent;
+  border-radius: 999px;
+  width: 34px;
+  height: 34px;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.sideNav {
+  padding: 24px 12px;
+}
+
+.sideList {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.sideList li + li {
+  margin-top: 10px;
+}
+
+.sideLink {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-height: 44px;
+  padding: 10px 12px;
+  border-radius: 14px;
+  color: #c8ebe5;
+  text-decoration: none;
+  background: transparent;
+  transition: background-color 180ms ease, color 180ms ease, transform 180ms ease;
+}
+
+.sideLink:hover,
+.sideLink:focus-visible {
+  background: rgba(255,255,255,0.10);
+  color: #ffffff;
+  outline: none;
+}
+
+.sideIcon {
+  width: 28px;
+  height: 28px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.10);
+}
+
+.sideLabel {
+  font-size: 0.78rem;
+  font-weight: 700;
+}
+
+.sidebar.collapsed .sideLabel,
+.sidebar.collapsed .brandText {
+  display: none;
+}
+
+.sidebar.collapsed .sideLink {
+  justify-content: center;
+}
+
+@media (max-width: 820px) {
+  .sidebar {
+    position: relative;
+    flex-basis: auto;
+    min-height: auto;
+    width: 100%;
+  }
+
+  .sidebar.collapsed {
+    flex-basis: auto;
+  }
+
+  .sideNav {
+    padding: 12px;
+  }
+}
