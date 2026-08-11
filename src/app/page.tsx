@@ -1,9 +1,10 @@
+import React from "react";
 import { Metadata } from "next";
 import { pagesConfig } from "../../config/pages";
 import styles from "./page.module.css";
-import ContentSection from "@/app/components/ContentSection/ContentSection";
-import SkillsCircularChart from "@/app/components/Charts/SkillsCircular/SkillsCircularChart";
-import HighchartsSkillsLoader from "@/app/components/Charts/HIghchartTree/HighchartSkillsLoader";
+const ContentSection = React.lazy(() => import("@/app/components/ContentSection/ContentSection"));
+const SkillsCircularChart = React.lazy(()=>import("@/app/components/Charts/SkillsCircular/SkillsCircularChart"));
+const HighchartsSkillsLoader = React.lazy(() => import("@/app/components/Charts/HIghchartTree/HighchartSkillsLoader"));
 
 export const metadata: Metadata = {
   title: pagesConfig.home.metadata.title,
