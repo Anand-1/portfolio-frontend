@@ -28,18 +28,8 @@ export default function Navigation() {
 
       <ul id="primary-navigation-links" className={`${styles.navList} ${isOpen ? styles.navListOpen : ''}`}> 
         <li>
-          <Link href="/" className={styles.navLink} onClick={() => setIsOpen(false)}>
-            Home
-          </Link>
-        </li>
-        <li>
           <Link href="/about" className={styles.navLink} onClick={() => setIsOpen(false)}>
             About
-          </Link>
-        </li>
-        <li>
-          <Link href="/gallery" className={styles.navLink} onClick={() => setIsOpen(false)}>
-            Gallery
           </Link>
         </li>
         <li>

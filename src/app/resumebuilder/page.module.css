@@ -125,10 +125,48 @@
 }
 
 .formSection h3 {
-  margin: 0 0 12px;
+  margin: 0;
   font-size: 0.88rem;
   letter-spacing: 0.1em;
   text-transform: uppercase;
+}
+
+.formSectionSummary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  cursor: pointer;
+  list-style: none;
+}
+
+.formSectionSummary::-webkit-details-marker {
+  display: none;
+}
+
+.formSectionSummary::after {
+  width: 8px;
+  height: 8px;
+  flex: 0 0 8px;
+  border-right: 2px solid var(--text-secondary, #b9c8cb);
+  border-bottom: 2px solid var(--text-secondary, #b9c8cb);
+  content: '';
+  transform: rotate(45deg) translateY(-2px);
+  transition: transform 160ms ease;
+}
+
+.formSection[open] > .formSectionSummary::after {
+  transform: rotate(225deg) translate(-2px, -1px);
+}
+
+.formSectionSummary:focus-visible {
+  border-radius: 4px;
+  outline: 2px solid rgba(154, 255, 172, 0.7);
+  outline-offset: 4px;
+}
+
+.formSectionContent {
+  margin-top: 16px;
 }
 
 .formGrid {

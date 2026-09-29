@@ -135,8 +135,11 @@ export default function ResumeBuilder() {
             <span>Profile setup</span>
           </div>
 
-          <section className={styles.formSection}>
-            <h3>Personal details</h3>
+          <details className={styles.formSection} open>
+            <summary className={styles.formSectionSummary}>
+              <h3>Personal details</h3>
+            </summary>
+            <div className={styles.formSectionContent}>
             <div className={styles.formGrid}>
               <div className={styles.formField}>
                 <label htmlFor="name">Full name</label>
@@ -192,10 +195,14 @@ export default function ResumeBuilder() {
                 />
               </div>
             </div>
-          </section>
+            </div>
+          </details>
 
-          <section className={styles.formSection}>
-            <h3>Summary input</h3>
+          <details className={styles.formSection}>
+            <summary className={styles.formSectionSummary}>
+              <h3>Summary input</h3>
+            </summary>
+            <div className={styles.formSectionContent}>
             <div className={styles.formField}>
               <label htmlFor="summary">Executive summary</label>
               <textarea
@@ -204,10 +211,14 @@ export default function ResumeBuilder() {
                 onChange={(event) => updateProfile('summary', event.target.value)}
               />
             </div>
-          </section>
+            </div>
+          </details>
 
-          <section className={styles.formSection}>
-            <h3>Career profile</h3>
+          <details className={styles.formSection}>
+            <summary className={styles.formSectionSummary}>
+              <h3>Career profile</h3>
+            </summary>
+            <div className={styles.formSectionContent}>
             {Object.entries(resume.skills).map(([category, skills]) => (
               <fieldset className={styles.skillGroup} key={category}>
                 <legend>{category}</legend>
@@ -252,10 +263,14 @@ export default function ResumeBuilder() {
                 </button>
               </fieldset>
             ))}
-          </section>
+            </div>
+          </details>
 
-          <section className={styles.formSection}>
-            <h3>Key achievements</h3>
+          <details className={styles.formSection}>
+            <summary className={styles.formSectionSummary}>
+              <h3>Key achievements</h3>
+            </summary>
+            <div className={styles.formSectionContent}>
             <div className={styles.listEditor}>
               {resume.achievements.map((achievement, index) => (
                 <div className={styles.skillEditorRow} key={`achievement-${index}`}>
@@ -290,10 +305,14 @@ export default function ResumeBuilder() {
                 Add achievement
               </button>
             </div>
-          </section>
+            </div>
+          </details>
 
-          <section className={styles.formSection}>
-            <h3>Work experience</h3>
+          <details className={styles.formSection}>
+            <summary className={styles.formSectionSummary}>
+              <h3>Work experience</h3>
+            </summary>
+            <div className={styles.formSectionContent}>
             {resume.experience.map((item, experienceIndex) => (
               <fieldset className={styles.experienceEditor} key={`experience-${experienceIndex}`}>
                 <legend>
@@ -396,7 +415,8 @@ export default function ResumeBuilder() {
             >
               Add experience
             </button>
-          </section>
+            </div>
+          </details>
         </aside>
 
         <section className={styles.previewPanel}>

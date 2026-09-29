@@ -11,6 +11,20 @@ describe('ResumeBuilder page', () => {
     expect(screen.getAllByRole('heading', { name: /Professional Summary/i }).length).toBeGreaterThan(0);
   });
 
+  it('lets Builder Studio sections expand and collapse independently', () => {
+    render(<ResumeBuilder />);
+
+    const careerProfile = screen.getByText('Career profile').closest('details');
+    expect(careerProfile).not.toHaveAttribute('open');
+
+    fireEvent.click(screen.getByText('Career profile'));
+    expect(careerProfile).toHaveAttribute('open');
+    expect(screen.getByLabelText('frontend skill 1')).toBeInTheDocument();
+
+    fireEvent.click(screen.getByText('Career profile'));
+    expect(careerProfile).not.toHaveAttribute('open');
+  });
+
   it('updates the preview when profile, skill, and experience fields are edited', () => {
     render(<ResumeBuilder />);
 
