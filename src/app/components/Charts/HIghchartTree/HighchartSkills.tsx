@@ -2,50 +2,10 @@
 
 import Highcharts from "highcharts";
 import HighchartsReact from "highcharts-react-official";
-import * as TreemapModule from "highcharts/modules/treemap.js";
-import * as TreegraphModule from "highcharts/modules/treegraph.js";
-import { cvData } from '@/data/cv';
-
-const initializeHighcharts = () => {
-  const initializeTreemap = (TreemapModule as any).default || TreemapModule;
-  if (typeof initializeTreemap === "function") {
-    initializeTreemap(Highcharts);
-  }
-
-  const initializeTreegraph = (TreegraphModule as any).default || TreegraphModule;
-  if (typeof initializeTreegraph === "function") {
-    initializeTreegraph(Highcharts);
-  }
-};
-
-initializeHighcharts();
+import "highcharts/modules/treemap.js";
+import "highcharts/modules/treegraph.js";
 
 const HighchartsSkills = () => {
-  const aiSkills = cvData.technicalSkills.ai || [];
-  const chartData = [
-    [undefined, "Frontend", 1],
-    [undefined, "Backend", 1],
-    [undefined, "Cloud & DevOps", 1],
-    [undefined, "Testing", 1],
-    [undefined, "AI / ML", 1],
-    ["Frontend", "React", 2],
-    ["Frontend", "Vue.js", 2],
-    ["Frontend", "Angular", 2],
-    ["Frontend", "JavaScript", 2],
-    ["Backend", "Node.js", 2],
-    ["Backend", "Python", 2],
-    ["Backend", "Java", 2],
-    ["Cloud & DevOps", "AWS", 2],
-    ["Cloud & DevOps", "Azure", 2],
-    ["Cloud & DevOps", "GCP", 2],
-    ["Cloud & DevOps", "Docker", 2],
-    ["Testing", "JUnit", 2],
-    ["Testing", "Selenium", 2],
-    ["Testing", "Postman", 2],
-    ["Testing", "Cypress", 2],
-    ...aiSkills.map((skill) => ["AI / ML", skill, 2] as const),
-  ];
-
   return (
     <div>
       <HighchartsReact

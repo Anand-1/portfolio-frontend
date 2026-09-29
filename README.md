@@ -67,7 +67,7 @@ Open [http://localhost:3000](http://localhost:3000) to view the portfolio.
 
 ## Vercel Deployment
 
-This repository includes a GitHub Actions workflow at `.github/workflows/vercel-deploy.yml` that deploys to Vercel on pushes to `main`.
+This repository includes a GitHub Actions workflow at `.github/workflows/vercel-deploy.yml`. Pull requests targeting `main` run lint, unit tests, and a production build. Pushes to `main` and manual deployments run the same readiness checks before deploying to Vercel.
 
 ### Required GitHub secrets
 

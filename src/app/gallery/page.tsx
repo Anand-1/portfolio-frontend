@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
+import Image from 'next/image';
 import styles from './page.module.css';
 
 interface PokemonData {
@@ -118,9 +119,12 @@ export default function Gallery() {
 
                 <div className={styles.imageArea}>
                   {poke.image ? (
-                    <img
+                    <Image
                       src={poke.image}
                       alt={poke.name}
+                      width={160}
+                      height={160}
+                      unoptimized
                       className={styles.pokemonImage}
                     />
                   ) : (

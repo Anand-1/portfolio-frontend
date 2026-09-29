@@ -1,20 +1,31 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useSyncExternalStore } from 'react';
+
+const usernameUpdatedEvent = 'username-updated';
+
+const subscribeToUsername = (callback: () => void) => {
+  window.addEventListener('storage', callback);
+  window.addEventListener(usernameUpdatedEvent, callback);
+  return () => {
+    window.removeEventListener('storage', callback);
+    window.removeEventListener(usernameUpdatedEvent, callback);
+  };
+};
+
+const getUsernameSnapshot = () => localStorage.getItem('app_username');
+const getServerUsernameSnapshot = () => null;
 
 export default function UsernamePopup() {
-  const [username, setUsername] = useState('');
+  const username = useSyncExternalStore(
+    subscribeToUsername,
+    getUsernameSnapshot,
+    getServerUsernameSnapshot
+  );
   const [inputVal, setInputVal] = useState('');
-  const [isOpen, setIsOpen] = useState(true);
+  const [isDismissed, setIsDismissed] = useState(false);
+  const isOpen = !username && !isDismissed;
   const [isLoading, setIsLoading] = useState(false); // New state to handle loading UI
-  useEffect(() => {
-    const savedUser = localStorage.getItem('app_username');
-    if (savedUser) {
-      setUsername(savedUser);
-    } else {
-      setIsOpen(true);
-    }
-  }, []);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -38,8 +49,8 @@ export default function UsernamePopup() {
 
       // If server responds successfully, update local storage and state
       localStorage.setItem('app_username', inputVal);
-      setUsername(inputVal);
-      setIsOpen(false);
+      window.dispatchEvent(new Event(usernameUpdatedEvent));
+      setIsDismissed(true);
     } catch (error) {
       console.error('API Error:', error);
       alert('Something went wrong. Please try again.');
@@ -49,7 +60,7 @@ export default function UsernamePopup() {
   };
 
   const handleClose = () => {
-    setIsOpen(false);
+    setIsDismissed(true);
   };
 
   if (!isOpen) {

@@ -9,7 +9,7 @@ export default function ContentSection() {
         <div className={styles.content}>
           <h2 className={styles.heading}>About Me</h2>
           <p className={styles.paragraph}>
-            I'm a passionate full-stack developer with expertise in React, Next.js, and TypeScript. 
+            I&apos;m a passionate full-stack developer with expertise in React, Next.js, and TypeScript.
             I love creating beautiful, performant web applications that solve real-world problems.
           </p>
           
@@ -35,7 +35,7 @@ export default function ContentSection() {
           </div>
 
           <div className={styles.ctaSection}>
-            <p>Interested in working together? Let's connect!</p>
+            <p>Interested in working together? Let&apos;s connect!</p>
             <button className={styles.ctaButton}>Get In Touch</button>
           </div>
         </div>

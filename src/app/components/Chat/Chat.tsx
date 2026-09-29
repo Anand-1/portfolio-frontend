@@ -10,51 +10,53 @@ interface Message {
   timestamp: Date;
 }
 
+const initialMessages: Message[] = [
+  {
+    id: '1',
+    text: 'Hi! How can I help you today?',
+    sender: 'bot',
+    timestamp: new Date('2026-09-30T12:00:00'),
+  },
+  {
+    id: '2',
+    text: 'I\'m interested in your portfolio projects',
+    sender: 'user',
+    timestamp: new Date('2026-09-30T12:01:00'),
+  },
+  {
+    id: '3',
+    text: 'Great! I have experience with React, Next.js, TypeScript, and full-stack development. Feel free to explore my projects section to see my work.',
+    sender: 'bot',
+    timestamp: new Date('2026-09-30T12:01:30'),
+  },
+  {
+    id: '4',
+    text: 'That\'s impressive. Do you work on freelance projects?',
+    sender: 'user',
+    timestamp: new Date('2026-09-30T12:02:30'),
+  },
+  {
+    id: '5',
+    text: 'Yes, I do! I\'m available for freelance work and would love to discuss your project requirements. You can reach out via the contact page or continue chatting here.',
+    sender: 'bot',
+    timestamp: new Date('2026-09-30T12:03:30'),
+  },
+  {
+    id: '6',
+    text: 'Perfect! I\'ll check out your projects and contact you soon.',
+    sender: 'user',
+    timestamp: new Date('2026-09-30T12:04:00'),
+  },
+  {
+    id: '7',
+    text: 'Looking forward to hearing from you! Feel free to ask if you have any questions. 😊',
+    sender: 'bot',
+    timestamp: new Date('2026-09-30T12:05:00'),
+  },
+];
+
 export default function Chat() {
-  const [messages, setMessages] = useState<Message[]>([
-    {
-      id: '1',
-      text: 'Hi! How can I help you today?',
-      sender: 'bot',
-      timestamp: new Date(Date.now() - 5 * 60000),
-    },
-    {
-      id: '2',
-      text: 'I\'m interested in your portfolio projects',
-      sender: 'user',
-      timestamp: new Date(Date.now() - 4 * 60000),
-    },
-    {
-      id: '3',
-      text: 'Great! I have experience with React, Next.js, TypeScript, and full-stack development. Feel free to explore my projects section to see my work.',
-      sender: 'bot',
-      timestamp: new Date(Date.now() - 3.5 * 60000),
-    },
-    {
-      id: '4',
-      text: 'That\'s impressive. Do you work on freelance projects?',
-      sender: 'user',
-      timestamp: new Date(Date.now() - 2.5 * 60000),
-    },
-    {
-      id: '5',
-      text: 'Yes, I do! I\'m available for freelance work and would love to discuss your project requirements. You can reach out via the contact page or continue chatting here.',
-      sender: 'bot',
-      timestamp: new Date(Date.now() - 1.5 * 60000),
-    },
-    {
-      id: '6',
-      text: 'Perfect! I\'ll check out your projects and contact you soon.',
-      sender: 'user',
-      timestamp: new Date(Date.now() - 60000),
-    },
-    {
-      id: '7',
-      text: 'Looking forward to hearing from you! Feel free to ask if you have any questions. 😊',
-      sender: 'bot',
-      timestamp: new Date(),
-    },
-  ]);
+  const [messages, setMessages] = useState<Message[]>(initialMessages);
   const [inputValue, setInputValue] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const messagesEndRef = useRef<HTMLDivElement>(null);
@@ -100,7 +102,7 @@ export default function Chat() {
     <div className={styles.chatContainer}>
       <div className={styles.chatHeader}>
         <h2>Chat with us</h2>
-        <p className={styles.subtitle}>We're here to help</p>
+        <p className={styles.subtitle}>We&apos;re here to help</p>
       </div>
 
       <div className={styles.messagesContainer}>

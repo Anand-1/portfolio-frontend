@@ -148,6 +148,69 @@
   grid-column: 1 / -1;
 }
 
+.skillGroup,
+.experienceEditor {
+  min-width: 0;
+  margin: 0 0 16px;
+  padding: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 12px;
+}
+
+.skillGroup legend,
+.experienceEditor legend {
+  padding: 0 6px;
+  color: var(--text-secondary, #b9c8cb);
+  font-size: 0.76rem;
+  text-transform: capitalize;
+}
+
+.experienceEditor h4 {
+  margin: 12px 0;
+  font-size: 0.78rem;
+  text-transform: uppercase;
+}
+
+.listEditor {
+  display: grid;
+  gap: 10px;
+}
+
+.skillEditorRow {
+  display: flex;
+  align-items: flex-end;
+  gap: 8px;
+}
+
+.skillEditorRow > .formField {
+  flex: 1;
+  min-width: 0;
+  margin-bottom: 0;
+}
+
+.addButton,
+.removeButton {
+  min-height: 38px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 8px;
+  padding: 8px 12px;
+  color: var(--text, #eaf9ee);
+  background: rgba(255, 255, 255, 0.06);
+  font: inherit;
+  font-size: 0.78rem;
+  cursor: pointer;
+}
+
+.addButton {
+  margin-top: 10px;
+  border-color: rgba(154, 255, 172, 0.35);
+}
+
+.removeButton {
+  flex: 0 0 auto;
+  margin-bottom: 14px;
+}
+
 .formField label {
   font-size: 0.7rem;
   letter-spacing: 0.12em;
@@ -302,4 +365,136 @@
   font-size: 0.72rem;
   color: var(--text-secondary, #b9c8cb);
   margin-bottom: 8px;
+}
+
+.technologies {
+  margin: 10px 0 0;
+  color: var(--text-secondary, #b9c8cb);
+  font-size: 0.76rem;
+  line-height: 1.5;
+}
+
+@media (max-width: 900px) {
+  .builderHeader {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .builderLayout {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+@media (max-width: 540px) {
+  .headerActions {
+    width: 100%;
+  }
+
+  .primaryButton {
+    width: 100%;
+  }
+
+  .formGrid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .editorPanel,
+  .previewPanel {
+    padding: 14px;
+    border-radius: 18px;
+  }
+
+  .formSection {
+    padding: 14px;
+  }
+
+  .skillEditorRow {
+    align-items: stretch;
+  }
+
+  .removeButton {
+    margin-bottom: 0;
+  }
+}
+
+@media print {
+  @page {
+    margin: 14mm;
+  }
+
+  :global(body *) {
+    visibility: hidden !important;
+  }
+
+  .resumeBuilderPage,
+  .previewCard,
+  .previewCard * {
+    visibility: visible !important;
+  }
+
+  .resumeBuilderPage {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    min-height: 0;
+    padding: 0;
+    color: #111;
+    background: #fff;
+  }
+
+  .builderHeader,
+  .editorPanel,
+  .previewTop {
+    display: none !important;
+  }
+
+  .builderLayout {
+    display: block;
+    max-width: none;
+  }
+
+  .previewPanel {
+    overflow: visible;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    box-shadow: none;
+    backdrop-filter: none;
+  }
+
+  .previewCard {
+    padding: 0;
+    border-radius: 0;
+    color: #111;
+    background: #fff;
+  }
+
+  .previewHeader,
+  .summaryText,
+  .previewSection ul,
+  .experienceMeta,
+  .technologies {
+    color: #222;
+  }
+
+  .previewHeader,
+  .previewSection h4 {
+    border-color: #bbb;
+  }
+
+  .previewSection h4 {
+    color: #111;
+  }
+
+  .contactRow span,
+  .skillPills span {
+    border: 0;
+    padding: 0;
+    color: #222;
+    background: transparent;
+  }
+
+  .experienceItem {
+    break-inside: avoid;
+  }
 }
