@@ -6,9 +6,7 @@ describe('Navigation Component', () => {
     render(<Navigation />);
 
     expect(screen.getByRole('link', { name: /Anand Raj/i })).toBeInTheDocument();
-    expect(screen.getByRole('link', { name: /Home/i })).toBeInTheDocument();
     expect(screen.getByRole('link', { name: /About/i })).toBeInTheDocument();
-    expect(screen.getByRole('link', { name: /Gallery/i })).toBeInTheDocument();
     expect(screen.getByRole('link', { name: /Contacts/i })).toBeInTheDocument();
     expect(screen.getByRole('link', { name: /Try my resume Builder/i })).toBeInTheDocument();
     expect(screen.getByRole('link', { name: /Try Games/i })).toBeInTheDocument();

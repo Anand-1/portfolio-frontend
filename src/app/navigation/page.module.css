@@ -85,6 +85,12 @@
   background: currentColor;
 }
 
+.logo {
+  width: fit-content;
+  height: 50px;
+  
+}
+
 @media (max-width: 820px) {
   .nav {
     min-height: auto;
@@ -116,5 +122,7 @@
     width: 100%;
     min-width: auto;
     justify-content: flex-start;
+    cursor: pointer;
+    height: 50px;
   }
 }
