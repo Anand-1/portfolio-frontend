@@ -45,7 +45,6 @@
   font-weight: 700;
   font-size: 0.86rem;
   cursor: pointer;
-  transition: transform 180ms ease, background 180ms ease, border-color 180ms ease;
 }
 
 .primaryButton {
@@ -63,12 +62,6 @@
   color: var(--text, #eaf9ee);
   background: transparent;
   border: 1px solid rgba(255, 255, 255, 0.2);
-}
-
-.primaryButton:hover,
-.secondaryButton:hover,
-.ghostButton:hover {
-  transform: translateY(-2px);
 }
 
 .builderLayout {
