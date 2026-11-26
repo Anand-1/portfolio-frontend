@@ -2,17 +2,12 @@
 
 import Link from "next/link";
 import { useState } from 'react';
-import styles from "./page.module.css";
-import Image from 'next/image';
-import LiveGif from '../../data/gifs/live.gif';
+import styles from './Navigation.module.css';
 export default function Navigation() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
     <nav className={styles.nav} aria-label="Primary navigation">
-      <Image src={LiveGif} alt="Logo" className={styles.logo} width={500}
-        height={500}
-        unoptimized/>
       <Link href="/" className={styles.brandMark} onClick={() => setIsOpen(false)}>
         Anand Raj
       </Link>

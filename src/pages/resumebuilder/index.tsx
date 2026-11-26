@@ -2,7 +2,7 @@
 
 import { useMemo, useState } from 'react';
 import { cvData } from '@/data/cv';
-import styles from './page.module.css';
+import styles from './index.module.css';
 
 type ResumeExperience = {
   company: string;

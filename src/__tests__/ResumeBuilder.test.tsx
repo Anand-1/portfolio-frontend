@@ -1,5 +1,5 @@
 import { fireEvent, render, screen } from '@testing-library/react';
-import ResumeBuilder from '@/app/resumebuilder/page';
+import ResumeBuilder from '@/pages/resumebuilder';
 
 describe('ResumeBuilder page', () => {
   it('renders the resume builder shell and preview title', () => {

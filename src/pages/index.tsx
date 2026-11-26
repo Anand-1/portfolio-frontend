@@ -1,17 +1,18 @@
-import React from "react";
-import { Metadata } from "next";
-import { pagesConfig } from "../../config/pages";
-import styles from "./page.module.css";
-const ContentSection = React.lazy(() => import("@/app/components/ContentSection/ContentSection"));
-export const metadata: Metadata = {
-  title: pagesConfig.home.metadata.title,
-  description: pagesConfig.home.metadata.description,
-};
+import Head from 'next/head';
+import ContentSection from '@/components/ContentSection/ContentSection';
+import { pagesConfig } from '../../config/pages';
+import styles from './index.module.css';
 
 export default function Home() {
   return (
-    <div className={styles.page}>
-      <ContentSection />
-    </div>
+    <>
+      <Head>
+        <title>{`${pagesConfig.home.metadata.title} | Anand Raj`}</title>
+        <meta name="description" content={pagesConfig.home.metadata.description} />
+      </Head>
+      <div className={styles.page}>
+        <ContentSection />
+      </div>
+    </>
   );
 }

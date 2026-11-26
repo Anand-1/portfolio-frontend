@@ -1,7 +1,27 @@
-import { NextResponse, NextRequest } from 'next/server';
+import type { NextApiRequest, NextApiResponse } from 'next';
 import { createClient } from '@supabase/supabase-js';
 
-// 1. Initialize the Supabase client
+interface UserProfile {
+  id: string;
+  username: string;
+  created_at: string;
+}
+
+interface ApiError {
+  error: string;
+}
+
+interface GetResponse {
+  user?: UserProfile;
+  error?: string;
+}
+
+interface PostResponse {
+  message?: string;
+  user?: UserProfile;
+  error?: string;
+}
+
 const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
 const supabaseKey = process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY;
 
@@ -11,31 +31,18 @@ if (!supabaseUrl || !supabaseKey) {
 
 const supabase = createClient(supabaseUrl, supabaseKey);
 
-// Define type structures for our data models
-interface UserProfile {
-  id: string;
-  username: string;
-  created_at: string;
-}
-
-interface RequestBody {
-  username?: string;
-}
-
-/**
- * GET Request: Fetches a username from the Supabase database
- * Endpoint: /api/user?username=alice123
- */
-export async function GET(request: NextRequest): Promise<NextResponse> {
+async function getUsername(
+  request: NextApiRequest,
+  response: NextApiResponse<GetResponse | ApiError>
+) {
   try {
-    const { searchParams } = new URL(request.url);
-    const username = searchParams.get('username');
+    const queryUsername = request.query.username;
+    const username = Array.isArray(queryUsername) ? queryUsername[0] : queryUsername;
 
     if (!username) {
-      return NextResponse.json({ error: "Username parameter is required" }, { status: 400 });
+      return response.status(400).json({ error: 'Username parameter is required' });
     }
 
-    // Query Supabase for the explicit UserProfile shape
     const { data, error } = await supabase
       .from('users')
       .select('id, username, created_at')
@@ -43,62 +50,73 @@ export async function GET(request: NextRequest): Promise<NextResponse> {
       .maybeSingle<UserProfile>();
 
     if (error) {
-      return NextResponse.json({ error: error.message }, { status: 500 });
+      return response.status(500).json({ error: error.message });
     }
 
     if (!data) {
-      return NextResponse.json({ error: "User not found" }, { status: 404 });
+      return response.status(404).json({ error: 'User not found' });
     }
 
-    return NextResponse.json({ user: data });
-
+    return response.status(200).json({ user: data });
   } catch {
-    return NextResponse.json({ error: "Internal Server Error" }, { status: 500 });
+    return response.status(500).json({ error: 'Internal Server Error' });
   }
 }
 
-/**
- * POST Request: Receives a username payload and saves it to Supabase
- * Endpoint: /api/user
- */
-export async function POST(request: NextRequest): Promise<NextResponse> {
+async function saveUsername(
+  request: NextApiRequest,
+  response: NextApiResponse<PostResponse | ApiError>
+) {
   try {
-    const body: RequestBody = await request.json();
-    const { username } = body;
+    const body: unknown = request.body;
+    const username =
+      typeof body === 'object' && body !== null && 'username' in body
+        ? body.username
+        : undefined;
 
     if (!username) {
-      return NextResponse.json({ error: "Username field is required in body" }, { status: 400 });
+      return response.status(400).json({ error: 'Username field is required in body' });
     }
 
-    const sanitizedUsername = username.trim();
+    if (typeof username !== 'string') {
+      return response.status(400).json({ error: 'Invalid request payload' });
+    }
 
     const { data, error } = await supabase
       .from('users')
-      .insert({ 'username': sanitizedUsername })
+      .insert({ username: username.trim() })
       .select()
       .single<UserProfile>();
 
-    // 3. Handle database response errors
     if (error) {
-      // Catch duplicate username constraint violation (PostgREST code 23505)
-      if (error.code === "23505") {
-        return NextResponse.json(
-          { error: "Username is already taken" },
-          { status: 409 }
-        );
+      if (error.code === '23505') {
+        return response.status(409).json({ error: 'Username is already taken' });
       }
-      return NextResponse.json(
-        { error: error.message }, 
-        { status: 500 }
-      );
+
+      return response.status(500).json({ error: error.message });
     }
 
-    return NextResponse.json({ 
-      message: "Username saved successfully!", 
-      user: data 
-    }, { status: 201 });
-
+    return response.status(201).json({
+      message: 'Username saved successfully!',
+      user: data,
+    });
   } catch {
-    return NextResponse.json({ error: "Invalid request payload" }, { status: 400 });
+    return response.status(400).json({ error: 'Invalid request payload' });
   }
+}
+
+export default async function handler(
+  request: NextApiRequest,
+  response: NextApiResponse<GetResponse | PostResponse | ApiError>
+) {
+  if (request.method === 'GET') {
+    return getUsername(request, response);
+  }
+
+  if (request.method === 'POST') {
+    return saveUsername(request, response);
+  }
+
+  response.setHeader('Allow', ['GET', 'POST']);
+  return response.status(405).json({ error: 'Method not allowed' });
 }

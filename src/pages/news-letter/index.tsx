@@ -1,4 +1,4 @@
-import styles from './page.module.css';
+import styles from './index.module.css';
 
 export default function NewsLetterPage() {
   return (

@@ -10,18 +10,18 @@ A modern personal portfolio built with Next.js 16.2.9, React 19, and TypeScript.
 - AI skills included in the portfolio skill set and visual charts
 - Highcharts treegraph widget for technical skill visualization
 - Circular skill chart summarizing core expertise areas
-- Modular component structure using the App Router
+- Pages Router routes in `src/pages` with reusable UI in `src/components`
 - Responsive layout with mobile-friendly breakpoints
 - Client-only dynamic chart loading for browser-safe rendering
 
 ## Application Flow
 
-1. `app/layout.tsx` renders the global layout:
+1. `src/pages/_app.tsx` renders the global layout:
    - animated background
    - navigation
    - page content wrapper
    - chat portal
-2. `app/page.tsx` renders the homepage content:
+2. `src/pages/index.tsx` renders the homepage content:
    - hero text and charts
    - circular skill chart
    - Highcharts skills treegraph
@@ -31,7 +31,7 @@ A modern personal portfolio built with Next.js 16.2.9, React 19, and TypeScript.
    - technical skills
    - work experience
    - achievements
-4. `src/app/components` renders reusable sections:
+4. `src/components` renders reusable sections:
    - `TechnicalSkills`
    - `ContentSection`
    - `Chat` and `ChatPortal`

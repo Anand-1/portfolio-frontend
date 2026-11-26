@@ -8,21 +8,21 @@ This project is configured with three testing frameworks.
 - Glassmorphism-inspired transparent button UI
 - AI / ML skills surfaced in both data and chart visualizations
 - Browser-safe Highcharts treegraph rendering via client-only loading
-- Responsive app layout with reusable App Router components
+- Responsive app layout with reusable Pages Router components
 
 ## Application Flow
 
-1. `app/layout.tsx` renders global layout components:
+1. `src/pages/_app.tsx` renders global layout components:
    - `AnimatedBackground`
    - `Navigation`
    - page content container
    - `ChatPortal`
-2. `app/page.tsx` renders home page content:
+2. `src/pages/index.tsx` renders home page content:
    - circular skills overview
    - Highcharts treegraph skills visualization
    - content section and call-to-action
 3. `src/data/cv.ts` provides structured portfolio data for components.
-4. Reusable UI components in `src/app/components/` are validated with Jest + RTL.
+4. Reusable UI components in `src/components/` are validated with Jest + RTL.
 5. End-to-end page flows are covered by Playwright specs under `e2e/`.
 
 ## 1. **Jest + React Testing Library (Unit Tests)**
@@ -122,10 +122,9 @@ npx playwright show-report
 ```
 portfolio-frontend/
 ├── src/
-│   ├── __tests__/
-│   │   └── Chat.test.tsx          # Unit tests
-│   ├── app/
-│   ├── components/
+│   ├── __tests__/                 # Jest unit tests
+│   ├── components/                # Shared UI components
+│   ├── pages/                     # Pages Router pages and API routes
 │   └── ...
 ├── e2e/
 │   └── chat.spec.ts               # E2E tests
@@ -174,7 +173,7 @@ portfolio-frontend/
 
 ### Module Resolution
 - Use `@/` alias for imports (configured in `tsconfig.json` and `jest.config.js`)
-- Example: `import Chat from '@/app/components/Chat'`
+- Example: `import Chat from '@/components/Chat/Chat'`
 
 ## CI/CD Integration
 

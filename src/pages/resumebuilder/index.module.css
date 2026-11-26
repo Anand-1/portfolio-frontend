@@ -4,7 +4,7 @@
   background:
     radial-gradient(circle at 20% 0%, rgba(118, 255, 190, 0.12), transparent 22%),
     radial-gradient(circle at 83% 10%, rgba(109, 190, 255, 0.1), transparent 24%),
-    var(--background, #07141a);
+    linear-gradient(180deg, rgba(7, 20, 26, 0.62), rgba(5, 13, 19, 0.78));
   color: var(--text, #eaf9ee);
 }
 

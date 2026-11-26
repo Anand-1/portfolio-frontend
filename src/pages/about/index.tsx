@@ -1,26 +1,28 @@
-import React from "react";
-import { Metadata } from "next";
-import CVHeader from "@/app/components/CVHeader";
-import ProfessionalSummary from "@/app/components/ProfessionalSummary";
-import TechnicalSkills from "@/app/components/TechnicalSkills";
-import WorkExperience from "@/app/components/WorkExperience";
-import KeyAchievements from "@/app/components/KeyAchievements";
-import { pagesConfig } from "../../../config/pages";
-import styles from "./page.module.css";
-
-export const metadata: Metadata = {
-  title: pagesConfig.resume.metadata.title,
-  description: pagesConfig.resume.metadata.description,
-};
+import Head from 'next/head';
+import CVHeader from '@/components/CVHeader';
+import ProfessionalSummary from '@/components/ProfessionalSummary';
+import TechnicalSkills from '@/components/TechnicalSkills';
+import WorkExperience from '@/components/WorkExperience';
+import KeyAchievements from '@/components/KeyAchievements';
+import styles from './index.module.css';
 
 export default function CV() {
   return (
-    <div className={styles.page}>
-      <CVHeader />
-      <ProfessionalSummary />
-      <TechnicalSkills />
-      <WorkExperience />
-      <KeyAchievements />
-    </div>
+    <>
+      <Head>
+        <title>{'About | Anand Raj'}</title>
+        <meta
+          name="description"
+          content="Learn about Anand Raj's experience, technical skills, and professional achievements."
+        />
+      </Head>
+      <div className={styles.page}>
+        <CVHeader />
+        <ProfessionalSummary />
+        <TechnicalSkills />
+        <WorkExperience />
+        <KeyAchievements />
+      </div>
+    </>
   );
 }

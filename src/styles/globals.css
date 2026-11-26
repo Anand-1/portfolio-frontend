@@ -1,15 +1,10 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  color-scheme: dark;
+  --background: #07141a;
+  --foreground: #eefbf1;
+  --background-deep: #050d13;
 }
 
 html {
@@ -36,7 +31,11 @@ body {
   display: flex;
   flex-direction: column;
   color: var(--foreground);
-  background: transparent;
+  background:
+    radial-gradient(ellipse at 12% 8%, rgba(25, 115, 111, 0.22), transparent 34%),
+    radial-gradient(ellipse at 92% 18%, rgba(62, 92, 170, 0.18), transparent 32%),
+    linear-gradient(145deg, var(--background), var(--background-deep) 72%);
+  background-attachment: fixed;
   font-family: monospace;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -60,7 +59,7 @@ a {
   background:
     radial-gradient(circle at 30% 0%, rgba(51, 206, 255, 0.12), transparent 20%),
     radial-gradient(circle at 88% 10%, rgba(154, 255, 172, 0.10), transparent 24%),
-    var(--background, #07141a);
+    linear-gradient(180deg, rgba(7, 20, 26, 0.78), rgba(5, 13, 19, 0.88));
   color: var(--text, #eefbf1);
 }
 
@@ -256,81 +255,51 @@ input[type="reset"]:disabled {
 .vectorBackground {
   position: fixed;
   inset: 0;
-  width: 100%;
-  height: 100%;
-  z-index: -2;
+  z-index: 0;
   pointer-events: none;
   overflow: hidden;
+  isolation: isolate;
 }
 
-.vectorBackgroundSvg {
-  width: 100%;
-  height: 100%;
+.vectorBackground::before,
+.vectorBackground::after {
+  content: "";
+  position: absolute;
+  inset: -20%;
+  pointer-events: none;
 }
 
-.bgShape {
-  fill: rgba(96, 165, 250, 0.16);
-  animation: float 12s ease-in-out infinite;
+.vectorBackground::before {
+  inset: 0;
+  opacity: 0.24;
+  background-image:
+    linear-gradient(rgba(185, 231, 220, 0.055) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(185, 231, 220, 0.055) 1px, transparent 1px);
+  background-size: 64px 64px;
+  mask-image: radial-gradient(ellipse at center, #000 8%, transparent 76%);
 }
 
-.bgShape1 {
-  fill: rgba(58, 123, 213, 0.18);
-  animation-delay: 0s;
+.vectorBackground::after {
+  background:
+    radial-gradient(ellipse at 24% 32%, rgba(49, 222, 178, 0.12), transparent 34%),
+    radial-gradient(ellipse at 78% 58%, rgba(84, 121, 255, 0.11), transparent 36%),
+    radial-gradient(ellipse at 53% 96%, rgba(172, 255, 126, 0.07), transparent 34%);
+  filter: blur(36px);
+  animation: ambient-drift 28s ease-in-out infinite alternate;
 }
 
-.bgShape2 {
-  fill: rgba(16, 185, 129, 0.16);
-  animation-delay: 2s;
-}
-
-.bgShape3 {
-  fill: rgba(236, 72, 153, 0.16);
-  animation-delay: 4s;
-}
-
-.bgLine {
-  stroke: rgba(255, 255, 255, 0.25);
-  stroke-dasharray: 4 4;
-  animation: draw 10s linear infinite;
-}
-
-.bgLine2 {
-  stroke: rgba(249, 115, 22, 0.2);
-  animation-delay: 2s;
-}
-
-@keyframes float {
-  0%, 100% {
-    transform: translateY(0px) scale(1);
+@keyframes ambient-drift {
+  from {
+    transform: translate3d(-1.5%, -1%, 0) scale(1);
   }
-  50% {
-    transform: translateY(-18px) scale(1.05);
-  }
-}
-
-@keyframes draw {
-  0% {
-    stroke-dashoffset: 0;
-  }
-  50% {
-    stroke-dashoffset: -20;
-  }
-  100% {
-    stroke-dashoffset: -40;
+  to {
+    transform: translate3d(1.5%, 1%, 0) scale(1.06);
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .bgShape,
-  .bgLine,
-  .bgLine2 {
+  .vectorBackground::after {
     animation: none;
-  }
-}
-
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
   }
 }
 
