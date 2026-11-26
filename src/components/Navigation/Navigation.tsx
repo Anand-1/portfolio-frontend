@@ -56,6 +56,11 @@ export default function Navigation() {
             News Letter
           </Link>
         </li>
+        <li>
+          <Link href="/login" className={styles.navLink} onClick={() => setIsOpen(false)}>
+            Sign in
+          </Link>
+        </li>
       </ul>
     </nav>
   );

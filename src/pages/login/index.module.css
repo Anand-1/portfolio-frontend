@@ -1,0 +1,100 @@
+.page {
+  min-height: calc(100vh - 76px);
+  display: grid;
+  place-items: center;
+  padding: clamp(32px, 8vw, 88px) 20px;
+}
+
+.card {
+  width: min(100%, 440px);
+  padding: clamp(28px, 6vw, 44px);
+  border: 1px solid rgba(187, 225, 214, 0.16);
+  border-radius: 24px;
+  background: linear-gradient(145deg, rgba(17, 39, 43, 0.92), rgba(8, 20, 27, 0.94));
+  box-shadow: 0 28px 80px rgba(0, 0, 0, 0.32);
+  backdrop-filter: blur(18px);
+}
+
+.eyebrow {
+  margin: 0 0 12px;
+  color: #9affac;
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.18em;
+}
+
+.title {
+  margin: 0;
+  color: #eefbf1;
+  font-size: clamp(2rem, 7vw, 2.7rem);
+  letter-spacing: -0.06em;
+}
+
+.description {
+  margin: 12px 0 30px;
+  color: #b5d2cf;
+  line-height: 1.6;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+}
+
+.label {
+  margin: 0 0 8px;
+  color: #d7e8e2;
+  font-size: 0.84rem;
+  font-weight: 700;
+}
+
+.input {
+  width: 100%;
+  margin-bottom: 20px;
+  padding: 14px 15px;
+  border: 1px solid rgba(187, 225, 214, 0.2);
+  border-radius: 12px;
+  background: rgba(3, 13, 18, 0.58);
+  color: #eefbf1;
+  font: inherit;
+}
+
+.input::placeholder {
+  color: #76908c;
+}
+
+.input:focus {
+  outline: 2px solid rgba(154, 255, 172, 0.62);
+  outline-offset: 2px;
+}
+
+.error {
+  margin: -4px 0 18px;
+  color: #ffaaa7;
+  font-size: 0.88rem;
+  line-height: 1.5;
+}
+
+.submitButton {
+  width: 100%;
+  min-height: 50px;
+  margin-top: 2px;
+  border: 0;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #e2ff7d, #8affac);
+  color: #092217;
+  font: inherit;
+  font-weight: 800;
+}
+
+.submitButton:disabled {
+  opacity: 0.7;
+}
+
+.note {
+  margin: 22px 0 0;
+  color: #8ca8a3;
+  font-size: 0.75rem;
+  line-height: 1.5;
+  text-align: center;
+}
