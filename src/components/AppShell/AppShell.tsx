@@ -1,8 +1,7 @@
 import React from 'react';
-import AnimatedBackground from '@/components/AnimatedBackground';
+import AnimatedBackground from '@/components/AnimatedBackground/AnimatedBackground';
 import ChatPortal from '@/components/Chat/ChatPortal';
-import UsernamePopup from '@/components/Usernamepopup/UsernamePopup';
-import Navigation from '@/components/Navigation';
+import Navigation from '@/components/Navigation/Navigation';
 
 interface AppShellProps {
   children: React.ReactNode;
@@ -13,7 +12,6 @@ export default function AppShell({ children }: AppShellProps) {
     <>
       <AnimatedBackground />
       <Navigation />
-      <UsernamePopup />
       <div className="appContent">{children}</div>
       <ChatPortal />
     </>

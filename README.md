@@ -31,7 +31,7 @@ A modern personal portfolio built with Next.js 16.2.9, React 19, and TypeScript.
    - technical skills
    - work experience
    - achievements
-4. `src/components` renders reusable sections:
+4. Each reusable component has its own folder under `src/components`, with its CSS module alongside the component:
    - `TechnicalSkills`
    - `ContentSection`
    - `Chat` and `ChatPortal`

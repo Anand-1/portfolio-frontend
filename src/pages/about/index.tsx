@@ -1,9 +1,9 @@
 import Head from 'next/head';
-import CVHeader from '@/components/CVHeader';
-import ProfessionalSummary from '@/components/ProfessionalSummary';
-import TechnicalSkills from '@/components/TechnicalSkills';
-import WorkExperience from '@/components/WorkExperience';
-import KeyAchievements from '@/components/KeyAchievements';
+import CVHeader from '@/components/CVHeader/CVHeader';
+import ProfessionalSummary from '@/components/ProfessionalSummary/ProfessionalSummary';
+import TechnicalSkills from '@/components/TechnicalSkills/TechnicalSkills';
+import WorkExperience from '@/components/WorkExperience/WorkExperience';
+import KeyAchievements from '@/components/KeyAchievements/KeyAchievements';
 import styles from './index.module.css';
 
 export default function CV() {

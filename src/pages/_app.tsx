@@ -1,7 +1,7 @@
 import type { AppProps } from 'next/app';
 import Head from 'next/head';
 import NextTopLoader from 'nextjs-toploader';
-import AppShell from '@/components/AppShell';
+import AppShell from '@/components/AppShell/AppShell';
 import '@/styles/globals.css';
 
 export default function App({ Component, pageProps }: AppProps) {

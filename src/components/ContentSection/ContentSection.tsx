@@ -12,32 +12,6 @@ export default function ContentSection() {
             I&apos;m a passionate full-stack developer with expertise in React, Next.js, and TypeScript.
             I love creating beautiful, performant web applications that solve real-world problems.
           </p>
-          
-          <h3 className={styles.subheading}>What I Do</h3>
-          <ul className={styles.list}>
-            <li>Build responsive web applications with React & Next.js</li>
-            <li>Develop full-stack solutions with modern JavaScript</li>
-            <li>Create optimized user experiences with performance in mind</li>
-            <li>Write clean, maintainable code following best practices</li>
-          </ul>
-
-          <h3 className={styles.subheading}>My Skills</h3>
-          <div className={styles.skillsGrid}>
-            <div className={styles.skillTag}>React</div>
-            <div className={styles.skillTag}>Next.js</div>
-            <div className={styles.skillTag}>TypeScript</div>
-            <div className={styles.skillTag}>JavaScript</div>
-            <div className={styles.skillTag}>Tailwind CSS</div>
-            <div className={styles.skillTag}>Node.js</div>
-            <div className={styles.skillTag}>REST APIs</div>
-            <div className={styles.skillTag}>AI / ML</div>
-            <div className={styles.skillTag}>Git</div>
-          </div>
-
-          <div className={styles.ctaSection}>
-            <p>Interested in working together? Let&apos;s connect!</p>
-            <button className={styles.ctaButton}>Get In Touch</button>
-          </div>
         </div>
 
         <div className={styles.image}>
