@@ -13,6 +13,7 @@ A modern personal portfolio built with Next.js 16.2.9, React 19, and TypeScript.
 - Pages Router routes in `src/pages` with reusable UI in `src/components`
 - Responsive layout with mobile-friendly breakpoints
 - Client-only dynamic chart loading for browser-safe rendering
+- Signed-in users can export Supabase user records as an Excel workbook from the navigation bar
 
 ## Application Flow
 
@@ -76,3 +77,11 @@ This repository includes a GitHub Actions workflow at `.github/workflows/vercel-
 - `VERCEL_PROJECT_ID`
 
 Add those secrets in your repository settings before the first deployment.
+
+### Export Supabase users
+
+After signing in, use **Export users** in the navigation bar to download the `users`
+table (`id`, `username`, and `created_at`) as an `.xlsx` workbook. The export runs in
+the browser using the signed-in Supabase session, so Supabase Row Level Security
+policies control which rows can be exported. This is an on-demand download, not a
+scheduled cron job.

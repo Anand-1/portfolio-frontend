@@ -3,8 +3,11 @@
 import Link from "next/link";
 import { useState } from 'react';
 import styles from './Navigation.module.css';
+import { useExportUsers } from '@/hooks/useExportUsers';
+
 export default function Navigation() {
   const [isOpen, setIsOpen] = useState(false);
+  const { isExporting, exportMessage, exportError, exportUsers } = useExportUsers();
 
   return (
     <nav className={styles.nav} aria-label="Primary navigation">
@@ -60,6 +63,24 @@ export default function Navigation() {
           <Link href="/login" className={styles.navLink} onClick={() => setIsOpen(false)}>
             Sign in
           </Link>
+        </li>
+        <li>
+          <button
+            type="button"
+            className={styles.navLink}
+            onClick={() => {
+              setIsOpen(false);
+              void exportUsers();
+            }}
+            disabled={isExporting}
+          >
+            {isExporting ? 'Exporting…' : 'Export users'}
+          </button>
+          {exportMessage && (
+            <p className={styles.exportMessage} role={exportError ? 'alert' : 'status'}>
+              {exportMessage}
+            </p>
+          )}
         </li>
       </ul>
     </nav>
